@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: https-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: https-server
+  template:
+    metadata:
+      labels:
+        app: https-server
+    spec:
+      containers:
+      - name: https-server
+        image: nginx:latest
+        ports:
+        - containerPort: 443
